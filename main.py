@@ -1,10 +1,24 @@
 import os
 
-p = "C:\\Users\\Admin\\desktop\\test.txt"
+p = "C:\\Users\\Admin\\desktop"
 
-if os.path.exists(p):
-    print("That location exists.")
-    if os.path.isfile(p):
-        print("That is a file.")
-else:
-    print("That doesn't location exists.")
+check = os.listdir(p)
+
+for a in check:
+    extension = a.split('.')[-1]
+    print("[" + a + "]",end="")
+    if "." not in a:
+        print(" is a folder")
+    elif extension == "txt":
+        print(" is a text file")
+    elif extension == "url":
+        print(" is a url file")
+    else:
+        print(" is a exe file")
+
+
+
+# file = "test.1.txt"
+# name = file.split('.')[-1]
+#
+# print(name)
