@@ -1,34 +1,15 @@
-import os
+import os, shutil
 
-p = "C:\\Users\\Admin\\desktop"
-def music():
-    folder_name = "Music"
-    folder_path = p
-    path = os.path.join(folder_path, folder_name)
-    return path
-
-Music_folder = music()
+path = "E:\\Random\\Server skin - Copy"
+files = os.listdir(path)
 
 
-check = os.listdir(p)
+for file in files:
+    filename,extension = os.path.splitext(file)
+    extension = extension[1:]
 
-for a in check:
-    # extension = a.split('.')[-1]
-    # print("[" + a + "]",end="")
-    if "Music" not in a:
-        os.mkdir(Music_folder)
+    if os.path.exists(path+'/'+extension):
+        shutil.move(path+'/'+file, path+'/'+extension+'/'+file)
     else:
-        print("That folder exist.")
-    # elif extension == "txt":
-    #     print(" is a text file")
-    # elif extension == "url":
-    #     print(" is a url file")
-    # else:
-    #     print(" is a exe file")
-
-
-
-# file = "test.1.txt"
-# name = file.split('.')[-1]
-#
-# print(name)
+        os.mkdir(path+'/'+extension)
+        shutil.move(path+'/'+file, path+'/'+extension+'/'+file)
