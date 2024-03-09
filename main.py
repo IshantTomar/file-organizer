@@ -1,6 +1,6 @@
 import os, shutil
 
-path = "E:\\Random\\Server skin - Copy"
+path = input("Enter path: ")
 files = os.listdir(path)
 
 
