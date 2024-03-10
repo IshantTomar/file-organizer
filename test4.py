@@ -3,14 +3,16 @@ import os                       # For interacting with the operating system.
 import shutil                   # To move files.
 from tkinter import *           # To make GUI.
 from tkinter import filedialog  # To open file directories.
-from tkinter import ttk         # For better GUI.
+import customtkinter        # For better GUI.
 # ======================================================================
 
 
 # =============================== Window ===============================
 window = Tk()                   # Creating an instance of Tkinter frame.
 window.title("File Organizer")  # Window name.
-window.iconbitmap("icon2.ico")
+
+icon = PhotoImage(file='icon.png')
+window.iconphoto(False, icon)
 # ======================================================================
 
 
