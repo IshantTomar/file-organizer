@@ -7,12 +7,12 @@ from tkinter import ttk         # For better GUI.
 
 # ======================================================================
 
+
 # =============================== Window ===============================
 window = Tk()                   # Creating an instance of Tkinter frame.
 window.title("File Organizer")  # Window name.
-
-
 # ======================================================================
+
 
 # ============================= Functions ==============================
 def openfile():  # Function to open select folder window.
@@ -44,12 +44,14 @@ style = ttk.Style()
 style.configure('font.TButton', font=(None, 10))
 # ======================================================================
 
+
 # =============================== Labels ===============================
-label1 = Label(window, text="Enter folder path", font=5)           # Enter folder path text.
+label1 = Label(window, text="Enter Folder Path", font=5)           # Enter folder path text.
 label1.grid(row=0, column=0)
 entry_label = ttk.Entry(window, textvariable=folder_path, font=5)  # Folder path entry box.
 entry_label.grid(row=0, column=1, padx=3)
 # ======================================================================
+
 
 # ============================== Buttons ===============================
 open_button = ttk.Button(text="Select", style="font.TButton", command=openfile)  # Select button.
