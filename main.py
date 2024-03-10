@@ -10,7 +10,7 @@ from tkinter import ttk         # For better GUI.
 # =============================== Window ===============================
 window = Tk()                   # Creating an instance of Tkinter frame.
 window.title("File Organizer")  # Window name.
-window.iconbitmap("E:\\Photoshop\\Projects\\Icon\\File Organizer\\icon2.ico")
+window.iconbitmap("E:\\Photoshop\\Projects\\Icon\\File Organizer\\icon2.ico")  # Window icon.
 # ======================================================================
 
 
