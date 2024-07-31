@@ -10,7 +10,7 @@ from tkinter import filedialog  # To open file directories.
 # =============================== Window ===============================
 window = CTk()                   # Creating an instance of Tkinter frame.
 window.title("File Organizer")   # Window name.
-window.iconbitmap("icon.ico")    # Window icon.
+window.iconbitmap(os.path.abspath('icon.ico'))    # Window icon.
 set_appearance_mode("dark")      # Window appearance.
 # ======================================================================
 
