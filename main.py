@@ -1,16 +1,17 @@
 # ======================== Importing Libraries ========================
 import os                       # For interacting with the operating system.
 import shutil                   # To move files.
-from tkinter import *           # To make GUI.
+import customtkinter            # To make GUI.
+from customtkinter import *     # To make GUI.
 from tkinter import filedialog  # To open file directories.
-from tkinter import ttk         # For better GUI.
 # ======================================================================
 
 
 # =============================== Window ===============================
-window = Tk()                   # Creating an instance of Tkinter frame.
-window.title("File Organizer")  # Window name.
-window.iconbitmap("E:\\Photoshop\\Projects\\Icon\\File Organizer\\icon2.ico")   # Window icon.
+window = CTk()                   # Creating an instance of Tkinter frame.
+window.title("File Organizer")   # Window name.
+window.iconbitmap("icon.ico")    # Window icon.
+set_appearance_mode("dark")      # Window appearance.
 # ======================================================================
 
 
@@ -30,31 +31,32 @@ def sort():      # Function to sort files.
 
         if os.path.exists(path + '/' + extension):
             shutil.move(path + '/' + file, path + '/' + extension + '/' + file)
+            sorted_label.configure(text=" Sorted!")
         else:
             os.mkdir(path + '/' + extension)
             shutil.move(path + '/' + file, path + '/' + extension + '/' + file)
+            sorted_label.configure(text=" Sorted!")
 # ======================================================================
 
 folder_path = StringVar()  # Defining folder_path as string.
 
-# ========================== Styling Buttons ===========================
-style = ttk.Style()
-style.configure('font.TButton', font=(None, 10))
 # ======================================================================
 
 
 # =============================== Labels ===============================
-label1 = Label(window, text="Enter Folder Path", font=5)           # Enter folder path text.
+label1 = CTkLabel(window, text="Enter Folder Path: ",  font=("Arial", 15))             # Enter folder path text.
 label1.grid(row=0, column=0)
-entry_label = ttk.Entry(window, textvariable=folder_path, font=5)  # Folder path entry box.
-entry_label.grid(row=0, column=1, padx=3)
+entry_label = CTkEntry(window, textvariable=folder_path,  font=("Arial", 15))          # Folder path entry box.
+entry_label.grid(row=0, column=1, padx=3,  sticky="w")
+sorted_label = CTkLabel(window, text="",  font=("Arial", 15), text_color="lightblue")  # To show files are sorted.
+sorted_label.grid(row=1, column=1, sticky="w")
 # ======================================================================
 
 
 # ============================== Buttons ===============================
-open_button = ttk.Button(text="Select", style="font.TButton", command=openfile)  # Select button.
-open_button.grid(row=0, column=3)
-sort_button = ttk.Button(text="Sort", style="font.TButton", command=sort)        # Sort button.
+open_button = CTkButton(window, text="Select", font=("Arial", 15), width=60, command=openfile)  # Select button.
+open_button.grid(row=0, column=3, pady=5)
+sort_button = CTkButton(window, text="Sort", font=("Arial", 15), width=60, command=sort)        # Sort button.
 sort_button.grid(row=1, column=3)
 # ======================================================================
 
