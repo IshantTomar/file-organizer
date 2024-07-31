@@ -4,13 +4,24 @@ import shutil                   # To move files.
 import customtkinter            # To make GUI.
 from customtkinter import *     # To make GUI.
 from tkinter import filedialog  # To open file directories.
+import sys
 # ======================================================================
 
+def resource_path(relative_path):
+    """ Get the absolute path to the resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 # =============================== Window ===============================
 window = CTk()                   # Creating an instance of Tkinter frame.
 window.title("File Organizer")   # Window name.
-window.iconbitmap(os.path.abspath('icon.ico'))    # Window icon.
+icon_path = resource_path("icon.ico")
+window.iconbitmap(icon_path)     # Window icon.
 set_appearance_mode("dark")      # Window appearance.
 # ======================================================================
 
