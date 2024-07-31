@@ -55,9 +55,9 @@ sorted_label.grid(row=1, column=1, sticky="w")
 
 # ============================== Buttons ===============================
 open_button = CTkButton(window, text="Select", font=("Arial", 15), width=60, command=openfile)  # Select button.
-open_button.grid(row=0, column=3, pady=5)
+open_button.grid(row=0, column=3, pady=5, padx=5)
 sort_button = CTkButton(window, text="Sort", font=("Arial", 15), width=60, command=sort)        # Sort button.
-sort_button.grid(row=1, column=3)
+sort_button.grid(row=1, column=3, pady=2, padx=5)
 # ======================================================================
 
 window.resizable(False,False)  # Prohibiting resizability.
